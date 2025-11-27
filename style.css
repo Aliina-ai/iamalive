@@ -1,12 +1,18 @@
-/* BODY & GENERAL */
-body {
-  background: radial-gradient(circle at top, #0d0d0d, #050505);
-  color: #f0f0f0;
+/* GENERAL RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
-  overflow-x: hidden;
 }
 
-/* HERO SECTION */
+body {
+  background: #0d0d0d;
+  color: #f0f0f0;
+  line-height: 1.6;
+}
+
+/* HERO */
 .hero {
   height: 100vh;
   display: flex;
@@ -14,50 +20,23 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(0,240,255,0.2) 0%, transparent 70%);
-  animation: rotateBG 30s linear infinite;
-  top: -50%;
-  left: -50%;
-  z-index: 0;
-}
-
-@keyframes rotateBG {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  background: radial-gradient(circle at center, #1b0032, #0d0d0d);
+  padding: 20px;
 }
 
 .hero h1 {
-  font-family: 'Orbitron', sans-serif;
   font-size: 4rem;
   color: #00f0ff;
-  text-shadow: 0 0 20px #00f0ff, 0 0 40px #00f0ff;
-  z-index: 1;
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { transform: scale(1); text-shadow: 0 0 20px #00f0ff, 0 0 40px #00f0ff; }
-  50% { transform: scale(1.05); text-shadow: 0 0 40px #00f0ff, 0 0 80px #00f0ff; }
+  text-shadow: 0 0 10px #00f0ff;
 }
 
 .hero p {
   font-size: 1.5rem;
   margin: 20px 0;
-  animation: fadeInUp 1.5s ease-out forwards;
 }
 
-/* BUTTONS */
 .cta-buttons .btn {
-  padding: 14px 35px;
+  padding: 12px 30px;
   margin: 10px;
   background: #00f0ff;
   color: #000;
@@ -65,57 +44,22 @@ body {
   border-radius: 25px;
   font-weight: bold;
   transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.cta-buttons .btn::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: -100%;
-  background: rgba(255,255,255,0.2);
-  transition: all 0.5s;
-  transform: skewX(-20deg);
-}
-
-.cta-buttons .btn:hover::after {
-  left: 100%;
 }
 
 .cta-buttons .btn:hover {
   background: #00c0cc;
-  transform: scale(1.05);
 }
 
-/* SECTIONS FADE-IN */
+/* SECTIONS */
 section {
   padding: 80px 20px;
   text-align: center;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 1s ease-out;
-}
-
-section.visible {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 h2 {
-  font-family: 'Orbitron', sans-serif;
   font-size: 2.5rem;
   margin-bottom: 20px;
   color: #ff00f0;
-  text-shadow: 0 0 10px #ff00f0, 0 0 20px #ff00f0;
-  animation: glow 2s ease-in-out infinite alternate;
-}
-
-@keyframes glow {
-  0% { text-shadow: 0 0 10px #ff00f0, 0 0 20px #ff00f0; }
-  100% { text-shadow: 0 0 30px #ff00f0, 0 0 60px #ff00f0; }
 }
 
 /* NFT GALLERY */
@@ -129,35 +73,28 @@ h2 {
 .nft-item {
   width: 180px;
   text-align: center;
-  perspective: 1000px;
 }
 
 .nft-item img {
   width: 100%;
   border-radius: 10px;
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  transition: transform 0.3s ease;
 }
 
 .nft-item img:hover {
-  transform: rotateY(15deg) rotateX(5deg) scale(1.1);
-  box-shadow: 0 0 30px #00f0ff, 0 0 60px #00f0ff inset;
+  transform: scale(1.1);
 }
 
-/* SCROLL PARTICLES */
-body::after {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  background: url('assets/particles.png') repeat;
-  animation: moveParticles 60s linear infinite;
-  opacity: 0.1;
+.nft-item span {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
 }
 
-@keyframes moveParticles {
-  0% { background-position: 0 0; }
-  100% { background-position: 1000px 1000px; }
+/* FOOTER */
+footer {
+  padding: 40px 20px;
+  background: #0a0a0a;
+  color: #666;
+  text-align: center;
 }
