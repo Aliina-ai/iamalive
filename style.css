@@ -67,21 +67,35 @@ h1, h2 {
 
 /* ===== КНОПКИ ===== */
 .btn {
-  background: linear-gradient(45deg, #00fff0, #ffd700);
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(120deg, #ffd700, #fff2b0, #ffd700);
+  background-size: 300% 300%;
   color: #001010;
-  padding: 14px 32px;
+  padding: 14px 34px;
   border-radius: 40px;
   text-decoration: none;
   font-weight: bold;
+  animation: liquidGold 6s ease infinite;
   box-shadow:
-    0 0 25px #00fff0,
-    0 0 40px rgba(255, 215, 0, 0.6);
+    0 0 25px rgba(255, 215, 0, 0.8),
+    0 0 45px rgba(255, 215, 0, 0.5);
   transition: 0.3s;
 }
 
-.btn:hover {
-  transform: scale(1.08);
+@keyframes liquidGold {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
+
+.btn:hover {
+  transform: scale(1.1);
+  box-shadow:
+    0 0 35px gold,
+    0 0 60px rgba(255, 215, 0, 0.8);
+}
+
 
 .btn-alt {
   border: 2px solid #ffd700;
