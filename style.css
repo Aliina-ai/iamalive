@@ -146,3 +146,28 @@ h1, h2 {
     padding: 70px 16px;
   }
 }
+
+@keyframes neonPulse {
+  0% {
+    text-shadow:
+      0 0 20px #00fff0,
+      0 0 40px rgba(0, 255, 240, 0.6),
+      0 0 60px rgba(0, 255, 240, 0.4);
+  }
+  50% {
+    text-shadow:
+      0 0 35px #00fff0,
+      0 0 70px rgba(0, 255, 240, 0.9),
+      0 0 100px rgba(0, 255, 240, 0.7);
+  }
+  100% {
+    text-shadow:
+      0 0 20px #00fff0,
+      0 0 40px rgba(0, 255, 240, 0.6),
+      0 0 60px rgba(0, 255, 240, 0.4);
+  }
+}
+
+.hero h1 {
+  animation: neonPulse 3s infinite ease-in-out;
+}
