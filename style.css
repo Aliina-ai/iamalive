@@ -97,18 +97,6 @@ h1, h2 {
 }
 
 
-.btn-alt {
-  border: 2px solid #ffd700;
-  color: #ffd700;
-  padding: 14px 32px;
-  border-radius: 40px;
-  text-decoration: none;
-  font-weight: bold;
-  box-shadow:
-    0 0 18px #ffd700,
-    inset 0 0 14px rgba(255, 215, 0, 0.5);
-}
-
 /* ===== СОЦМЕРЕЖІ ===== */
 .social-links a {
   margin: 12px;
