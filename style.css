@@ -1,87 +1,86 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background: #f9ffff;
-  color: #111;
+  background: radial-gradient(circle at top, #0e1f25, #050b10);
+  color: #e6fefe;
   overflow-x: hidden;
 }
 
+/* Секції тепер "плавають" над темним фоном */
 section {
   padding: 100px 20px;
   text-align: center;
+  background: rgba(5, 20, 25, 0.65);
+  margin: 60px auto;
+  width: 90%;
+  max-width: 1200px;
+  border-radius: 22px;
+  box-shadow: 
+    0 0 25px rgba(0, 255, 240, 0.15),
+    inset 0 0 40px rgba(0, 255, 240, 0.05);
+  backdrop-filter: blur(6px);
 }
 
+/* Заголовки */
 h1, h2 {
-  text-shadow: 0 0 15px #00fff0;
+  color: #7ffdf6;
+  text-shadow:
+    0 0 10px #00fff0,
+    0 0 25px rgba(0, 255, 240, 0.6);
 }
 
-/* LOGO */
-.logo {
-  width: 120px;
-  margin: 20px;
+/* HERO */
+#hero {
+  background: transparent;
+  box-shadow: none;
 }
 
-/* BUTTONS */
-.btn, .btn-alt {
-  display: inline-block;
-  margin: 15px;
-  padding: 14px 30px;
-  border-radius: 40px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: 0.3s;
+h1 {
+  font-size: 64px;
 }
 
+/* Кнопки */
 .btn {
-  background: linear-gradient(45deg, #00fff0, gold);
-  color: black;
-  box-shadow: 0 0 20px #00fff0;
+  background: linear-gradient(45deg, #00fff0, #ffd700);
+  color: #001010;
+  box-shadow:
+    0 0 20px #00fff0,
+    0 0 35px rgba(255, 215, 0, 0.6);
 }
 
 .btn-alt {
-  border: 2px solid gold;
-  color: gold;
-  box-shadow: 0 0 15px gold;
+  border: 2px solid #ffd700;
+  color: #ffd700;
+  box-shadow:
+    0 0 15px #ffd700,
+    inset 0 0 10px rgba(255, 215, 0, 0.4);
 }
 
-.btn:hover {
-  transform: scale(1.05);
+/* Соцмережі */
+.social-links a {
+  margin: 10px;
+  color: #1cf3e8;
+  text-decoration: none;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(28, 243, 232, 0.8);
 }
 
-/* LANG SWITCH */
-.lang-switch {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 10;
-}
-
+/* Перемикач мови */
 .lang-switch button {
-  background: gold;
+  background: linear-gradient(45deg, #00fff0, gold);
+  color: #001010;
   border: none;
+  border-radius: 10px;
   margin: 5px;
-  padding: 6px 12px;
+  padding: 6px 14px;
   cursor: pointer;
 }
 
-/* SOCIAL */
-.social-links a {
-  margin: 10px;
-  color: #00aaa0;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-/* NEON TEXT */
-h1 {
-  font-size: 64px;
-  color: #00fff0;
-}
-
-/* MATRIX BG */
+/* Canvas "кодовий" фон */
 #matrix {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: -1;
+  z-index: -2;
+  filter: brightness(0.55);
 }
