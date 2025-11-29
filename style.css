@@ -1,86 +1,148 @@
-body {
+/* ===== ОСНОВНИЙ ФОН САЙТУ ===== */
+body { 
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background: radial-gradient(circle at top, #0e1f25, #050b10);
+  background: #050b10; /* чистий темний фон під Matrix */
   color: #e6fefe;
   overflow-x: hidden;
 }
 
-/* Секції тепер "плавають" над темним фоном */
+/* ===== СЕКЦІЇ — НЕОНОВІ ПАНЕЛІ ===== */
 section {
   padding: 100px 20px;
   text-align: center;
-  background: rgba(5, 20, 25, 0.65);
-  margin: 60px auto;
+  background: rgba(6, 20, 25, 0.75);
+  margin: 80px auto;
   width: 90%;
   max-width: 1200px;
-  border-radius: 22px;
+  border-radius: 26px;
   box-shadow: 
-    0 0 25px rgba(0, 255, 240, 0.15),
-    inset 0 0 40px rgba(0, 255, 240, 0.05);
-  backdrop-filter: blur(6px);
+    0 0 30px rgba(0, 255, 240, 0.25),
+    inset 0 0 45px rgba(0, 255, 240, 0.08);
+  backdrop-filter: blur(8px);
 }
 
-/* Заголовки */
+/* ===== ЗАГОЛОВКИ ===== */
 h1, h2 {
   color: #7ffdf6;
   text-shadow:
-    0 0 10px #00fff0,
-    0 0 25px rgba(0, 255, 240, 0.6);
+    0 0 12px #00fff0,
+    0 0 35px rgba(0, 255, 240, 0.8);
+  letter-spacing: 3px;
 }
 
-/* HERO */
-#hero {
+/* ===== HERO ===== */
+.hero {
+  height: 100vh;
   background: transparent;
   box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   /* вертикальний центр */
+  align-items: center;       /* горизонтальний центр */
+  text-align: center;
+  position: relative;
+  z-index: 2;
 }
 
-h1 {
-  font-size: 64px;
+.hero h1 {
+  font-size: 100px;
+  margin: 0;
+  color: #00fff0;
+  letter-spacing: 6px;
+  text-shadow:
+    0 0 25px #00fff0,
+    0 0 60px rgba(0, 255, 240, 0.9);
 }
 
-/* Кнопки */
+.hero p {
+  margin-top: 25px;
+  font-size: 28px;
+  color: gold;
+  letter-spacing: 2px;
+  text-shadow:
+    0 0 12px gold,
+    0 0 30px rgba(255, 215, 0, 0.7);
+}
+
+/* ===== КНОПКИ ===== */
 .btn {
   background: linear-gradient(45deg, #00fff0, #ffd700);
   color: #001010;
+  padding: 14px 32px;
+  border-radius: 40px;
+  text-decoration: none;
+  font-weight: bold;
   box-shadow:
-    0 0 20px #00fff0,
-    0 0 35px rgba(255, 215, 0, 0.6);
+    0 0 25px #00fff0,
+    0 0 40px rgba(255, 215, 0, 0.6);
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.08);
 }
 
 .btn-alt {
   border: 2px solid #ffd700;
   color: #ffd700;
+  padding: 14px 32px;
+  border-radius: 40px;
+  text-decoration: none;
+  font-weight: bold;
   box-shadow:
-    0 0 15px #ffd700,
-    inset 0 0 10px rgba(255, 215, 0, 0.4);
+    0 0 18px #ffd700,
+    inset 0 0 14px rgba(255, 215, 0, 0.5);
 }
 
-/* Соцмережі */
+/* ===== СОЦМЕРЕЖІ ===== */
 .social-links a {
-  margin: 10px;
+  margin: 12px;
   color: #1cf3e8;
   text-decoration: none;
   font-weight: bold;
-  text-shadow: 0 0 10px rgba(28, 243, 232, 0.8);
+  text-shadow: 0 0 14px rgba(28, 243, 232, 0.9);
+  transition: 0.3s;
 }
 
-/* Перемикач мови */
+.social-links a:hover {
+  color: gold;
+  text-shadow: 0 0 20px gold;
+}
+
+/* ===== ПЕРЕМИКАЧ МОВИ ===== */
 .lang-switch button {
   background: linear-gradient(45deg, #00fff0, gold);
   color: #001010;
   border: none;
   border-radius: 10px;
-  margin: 5px;
+  margin: 6px;
   padding: 6px 14px;
   cursor: pointer;
+  box-shadow: 0 0 10px #00fff0;
 }
 
-/* Canvas "кодовий" фон */
+/* ===== MATRIX-КОД ФОН ===== */
 #matrix {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: -2;
-  filter: brightness(0.55);
+  z-index: -3;
+  background: black;
+  filter: brightness(0.7) contrast(1.2);
+}
+
+/* ===== АДАПТИВ ПІД ТЕЛЕФОН ===== */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 56px;
+  }
+
+  .hero p {
+    font-size: 18px;
+  }
+
+  section {
+    padding: 70px 16px;
+  }
 }
