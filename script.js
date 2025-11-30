@@ -1,38 +1,59 @@
-// LANGUAGE SWITCH
+// =========================
+// LANGUAGE SWITCH (data-en / data-ua)
+// =========================
 function setLang(lang) {
-  document.querySelectorAll('.lang').forEach(el => el.style.display = 'none');
-  document.querySelectorAll('.' + lang).forEach(el => el.style.display = 'block');
-}
-setLang('en');
+  localStorage.setItem("lang", lang);
 
+  document.querySelectorAll("[data-en]").forEach(el => {
+    el.textContent = el.dataset[lang];
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const lang = localStorage.getItem("lang") || "en";
+  setLang(lang);
+});
+
+
+// =========================
 // MATRIX BACKGROUND
+// =========================
 const canvas = document.getElementById("matrix");
-const ctx = canvas.getContext("2d");
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+if (canvas) {
+  const ctx = canvas.getContext("2d");
 
-const letters = "01IAMLIVEAI";
-const fontSize = 16;
-const columns = canvas.width / fontSize;
-const drops = Array.from({ length: columns }).fill(1);
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
 
-function draw() {
-  ctx.fillStyle = "rgba(255,255,255,0.08)";
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  const letters = "01IAMLIVEAI";
+  const fontSize = 16;
+  const columns = Math.floor(canvas.width / fontSize);
+  const drops = Array.from({ length: columns }).fill(1);
 
-  ctx.fillStyle = "#00ffe0";
-  ctx.font = fontSize + "px monospace";
+  function draw() {
+    ctx.fillStyle = "rgba(255,255,255,0.08)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-  for (let i = 0; i < drops.length; i++) {
-    const text = letters[Math.floor(Math.random() * letters.length)];
-    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+    ctx.fillStyle = "#00ffe0";
+    ctx.font = fontSize + "px monospace";
 
-    if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-      drops[i] = 0;
+    for (let i = 0; i < drops.length; i++) {
+      const text = letters[Math.floor(Math.random() * letters.length)];
+      ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+      if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+        drops[i] = 0;
+      }
+      drops[i]++;
     }
-    drops[i]++;
   }
-}
 
-setInterval(draw, 33);
+  setInterval(draw, 33);
+
+  // Адаптація під зміну розміру вікна
+  window.addEventListener("resize", () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  });
+}
